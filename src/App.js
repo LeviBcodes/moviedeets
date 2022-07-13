@@ -1,10 +1,14 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
+import useMediaSearch from './useMediaSearch';
 
 function App() {
+  const[query, setQuery] = useState('');
+  const[pageNumber, setPageNumber] = useState(1);
+  useMediaSearch(query, pageNumber);
   return (
-    <div className="App">
-    <h1>Hey</h1>
-    </div>
+    <>
+      <input type="text" />
+    </>
   );
 }
 export default App;
