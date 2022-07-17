@@ -27,7 +27,7 @@ export default function useMediaSearch(query, pageNumber) {
                 setMedia(prevMedia => {
                     return [...new Set([...prevMedia, ...[res.data]])]
                 })
-                setHasMore(res.data.totalResults > 0)
+                setHasMore(res.data.Search.length > 0)
                 setLoading(false)
             }).catch(e => {
                 if(axios.isCancel(e)) return

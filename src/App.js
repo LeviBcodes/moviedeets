@@ -18,12 +18,12 @@ function App() {
     if(loading) return
     if(observer.current) observer.current.disconnect()
     observer.current = new IntersectionObserver(entries => {
-      if(entries[0].isIntersecting && hasMore) {
+      if(entries[0].isIntersecting){
         setPageNumber(prevPageNumber => prevPageNumber + 1)
       }
-    }, {threshold: 0.5})
+    })
     if(node) observer.current.observe(node)
-  }, [])
+  }, [loading, hasMore])
   
   function handleSearch(e) {
     e.preventDefault();
@@ -35,9 +35,31 @@ function App() {
     <>
       <input type="text" value={query} onChange={handleSearch} className="" />
       {media && media.map((item, index) => {
-        item.Search && item.Search.map((value, key) => {
-          console.log(value.Title)
-      })})}
+        if(item.Search && item.Search.length - 1) {
+          return(
+            item.Search && item.Search.map((value, key) => {
+              return (
+                <div key={key} ref={lastMediaElementRef}>
+                  <img src={value.Poster} alt={value.Title} />
+                  <p className='text-black font-bold text-2xl'>{value.Title}</p>
+                </div>
+              )
+            })
+          )
+        }
+        else {
+          return(
+            item.Search && item.Search.map((value, key) => {
+              return (
+                <div key={key}>
+                  <img src={value.Poster} alt={value.Title} />
+                  <p className='text-black font-bold text-2xl'>{value.Title}</p>
+                </div>
+              )
+            })
+          )
+        }
+      })}
     </>
   );
 }
