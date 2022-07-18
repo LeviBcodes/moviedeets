@@ -38,7 +38,7 @@ function App() {
       <div className="container mx-auto text-center py-5">
         <input type="text" value={query} onChange={handleSearch} className="border border-black w-60 " />
       </div>
-      <div className="container mx-auto space-y-2 lg:space-y-0 lg:gap-2 lg:grid lg:grid-cols-4">
+      <div className="container mx-auto space-y-2 lg:space-y-0 lg:gap-4 lg:grid lg:grid-cols-4">
         {media && media.map((item, index) => {
           if(item.Search && item.Search.length - 1) {
             return(

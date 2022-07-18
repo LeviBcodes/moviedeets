@@ -22,12 +22,12 @@ const Media = (props) => {
     , [])
 
     return(
-        <div className="container mx-auto">
-            {media.Poster && <img src={`${media.Poster}`} alt="poster" className=""/>}
-            {media.Title && <h1 className="font-bold text-2xl ">{media.Title}</h1>}
+        <div className="container mx-auto shadow-sm hover:shadow-lg rounded-md transition-all duration-200 ease-linear cursor-pointer py-2 px-2">
+            {media.Poster && <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-full w-full"/>}
+            {media.Title && <h1 className="font-bold text-2xl mx-auto">{media.Title}</h1>}
             {media.Year && <h2 className="text-black">{media.Year}</h2>}
             <button className="text-white font-medium rounded-md px-2 bg-gradient-to-r from-pink-600 to-purple-600">Details</button>
-            <div id="details" className="">
+            <div id="details" className="hidden">
             {media.Plot && <p className="text-black ">{media.Plot}</p>}
             {media.Genre && <p className="text-black"><strong>Genre: </strong>{media.Genre}</p>}
             {media.Language && <p className="text-black"><strong>Language: </strong>{media.Language}</p>}
