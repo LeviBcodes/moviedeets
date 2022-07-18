@@ -44,7 +44,7 @@ function App() {
             return(
               item.Search && item.Search.map((value, key) => {
                 return (
-                    <div key={key} ref={lastMediaElementRef} className="w-full h-full">
+                    <div key={key} ref={lastMediaElementRef} className="w-full h-full mx-auto">
                       <Media imdbID={value.imdbID} />
                     </div>
                 )
@@ -64,8 +64,6 @@ function App() {
           }
         })}
       </div>
-      <div>{loading && 'Loading...'}</div>
-      <div>{error && 'Error...'}</div>
     </>
   );
 }

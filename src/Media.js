@@ -6,13 +6,14 @@ import axios from "axios";
 
 const Media = (props) => {
     const movieID = props.imdbID;
-    const[movie, setMovie] = useState([]);
+    const[media, setMedia] = useState([]);
     const[isLoading, setIsLoading] = useState(false);
     const api = "http://www.omdbapi.com/?apikey=a619790";
     useEffect(() => {
+        setIsLoading(true);
         axios.get(`${api}&i=${movieID}&plot=full`)
         .then(res => {
-            setMovie(res.data);
+            setMedia(res.data);
         })
         .catch(err => {
             console.log(err);
@@ -21,23 +22,28 @@ const Media = (props) => {
     , [])
 
     return(
-        <div className="">
-            {movie.Poster && <img src={`${movie.Poster}`} alt="poster" className=""/>}
-            {movie.Title && <h1 className="font-bold text-center py-4 text-2xl">{movie.Title}</h1>}
+        <div className="container mx-auto">
+            {media.Poster && <img src={`${media.Poster}`} alt="poster" className=""/>}
+            {media.Title && <h1 className="font-bold text-2xl ">{media.Title}</h1>}
+            {media.Year && <h2 className="text-black">{media.Year}</h2>}
+            <button className="text-white font-medium rounded-md px-2 bg-gradient-to-r from-pink-600 to-purple-600">Details</button>
             <div id="details" className="">
-            {movie.Year && <h2 className="text-black">{movie.Year}</h2>}
-            <button className="text-black bg-gradient-to-r from-pink-600 to-purple-600">Details</button>
-            {movie.Plot && <p className="text-black ">{movie.Plot}</p>}
-            {movie.Actors && <p className="text-black "><strong>Starring: </strong>{movie.Actors}</p>}
-            {movie.Director && <p className="text-black "><strong>Directed By: </strong>{movie.Director}</p>}
-            {movie.Writer && <p className="text-black "><strong>Written By: </strong>{movie.Writer}</p>}
-            {movie.Awards && <p className="text-black "><strong>Awards: </strong>{movie.Awards}</p>}
-            {movie.Production && <p className="text-black "><strong>Production: </strong>{movie.Production}</p>}
-            {movie.BoxOffice && <p className="text-black "><strong>Box Office: </strong>{movie.BoxOffice}</p>}
-            {movie.imdbRating && <p className="text-black "><strong>Imbdb Rading: </strong>{movie.imdbRating}</p>}
-            {movie.imdbVotes && <p className="text-black "><strong>Imdb Votes: </strong>{movie.imdbVotes}</p>}
-            {movie.Type && <p className="text-black "><strong>Media Type: </strong>{movie.Type}</p>}
-            {movie.Website && <p className="text-black "><strong>Website: </strong>{movie.Website}</p>}
+            {media.Plot && <p className="text-black ">{media.Plot}</p>}
+            {media.Genre && <p className="text-black"><strong>Genre: </strong>{media.Genre}</p>}
+            {media.Language && <p className="text-black"><strong>Language: </strong>{media.Language}</p>}
+            {media.Runtime && <p className="text-black"><strong>Runtime: </strong>{media.Runtime}</p>}
+            {media.Actors && <p className="text-black "><strong>Starring: </strong>{media.Actors}</p>}
+            {media.Director && <p className="text-black "><strong>Directed By: </strong>{media.Director}</p>}
+            {media.Writer && <p className="text-black "><strong>Written By: </strong>{media.Writer}</p>}
+            {media.Awards && <p className="text-black "><strong>Awards: </strong>{media.Awards}</p>}
+            {media.Production && <p className="text-black "><strong>Production: </strong>{media.Production}</p>}
+            {media.Country && <p className="text-black "><strong>Country: </strong>{media.Country}</p>}
+            {media.BoxOffice && <p className="text-black "><strong>Box Office: </strong>{media.BoxOffice}</p>}
+            {media.imdbRating && <p className="text-black "><strong>Imbdb Rading: </strong>{media.imdbRating}</p>}
+            {media.imdbVotes && <p className="text-black "><strong>Imdb Votes: </strong>{media.imdbVotes}</p>}
+            {media.Type && <p className="text-black "><strong>Media Type: </strong>{media.Type}</p>}
+            {media.totalSeasons && <p className="text-black "><strong>Total Seasons: </strong>{media.totalSeasons}</p>}
+            {media.Website && <p className="text-black "><strong>Website: </strong>{media.Website}</p>}
             </div>
         </div>
     )
