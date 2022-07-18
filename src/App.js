@@ -1,5 +1,7 @@
 import React, {useState, useRef, useCallback} from 'react';
 import useMediaSearch from './useMediaSearch';
+import Media from './Media';
+import './index.css';
 
 function App() {
   const[query, setQuery] = useState('');
@@ -33,33 +35,37 @@ function App() {
   
   return (
     <>
-      <input type="text" value={query} onChange={handleSearch} className="" />
-      {media && media.map((item, index) => {
-        if(item.Search && item.Search.length - 1) {
-          return(
-            item.Search && item.Search.map((value, key) => {
-              return (
-                <div key={key} ref={lastMediaElementRef}>
-                  <img src={value.Poster} alt={value.Title} />
-                  <p className='text-black font-bold text-2xl'>{value.Title}</p>
-                </div>
-              )
-            })
-          )
-        }
-        else {
-          return(
-            item.Search && item.Search.map((value, key) => {
-              return (
-                <div key={key}>
-                  <img src={value.Poster} alt={value.Title} />
-                  <p className='text-black font-bold text-2xl'>{value.Title}</p>
-                </div>
-              )
-            })
-          )
-        }
-      })}
+      <div className="container mx-auto text-center py-5">
+        <input type="text" value={query} onChange={handleSearch} className="border border-black w-60 " />
+      </div>
+      <div className="container mx-auto space-y-2 lg:space-y-0 lg:gap-2 lg:grid lg:grid-cols-4">
+        {media && media.map((item, index) => {
+          if(item.Search && item.Search.length - 1) {
+            return(
+              item.Search && item.Search.map((value, key) => {
+                return (
+                    <div key={key} ref={lastMediaElementRef} className="w-full h-full">
+                      <Media imdbID={value.imdbID} />
+                    </div>
+                )
+              })
+            )
+          }
+          else {
+            return(
+              item.Search && item.Search.map((value, key) => {
+                return (
+                  <div key={key} className="container mx-auto">
+                    <Media imdbID={item.imdbID} />
+                  </div>
+                )
+              })
+            )
+          }
+        })}
+      </div>
+      <div>{loading && 'Loading...'}</div>
+      <div>{error && 'Error...'}</div>
     </>
   );
 }
