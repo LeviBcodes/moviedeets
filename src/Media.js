@@ -2,12 +2,14 @@ import React, {useState, useEffect} from "react";
 import './index.css';
 import App from "./App";
 import axios from "axios";
+import no_poster from "./No_picture_available.png"
 
 
 const Media = (props) => {
     const movieID = props.imdbID;
     const[media, setMedia] = useState([]);
     const[isLoading, setIsLoading] = useState(false);
+    const[showDetails, setShowDetails] = useState(false);
     const api = "http://www.omdbapi.com/?apikey=a619790";
     useEffect(() => {
         setIsLoading(true);
@@ -24,39 +26,51 @@ const Media = (props) => {
 
     return(
         <>
-        {isLoading && 
-            <div role="status">
-                <svg class="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-purple-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
-                    <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
-                </svg>
-                <span class="sr-only">Loading...</span>
+            {isLoading &&         
+            <div className="flex justify-center items-center">
+                <div className="w-9 h-9 animate-spin rounded-full bg-gradient-to-r from-purple-600 to-pink-600 ">
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-7 h-7 bg-white rounded-full border-2 border-white"></div>
+                </div>
             </div>
-        }
-        <div className="container mx-auto shadow-sm hover:shadow-lg rounded-md transition-all duration-200 ease-linear cursor-pointer py-4 px-2">
-            {media.Poster && <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-full w-full"/>}
-            {media.Title && <h1 className="font-bold text-2xl mx-auto">{media.Title}</h1>}
-            {media.Year && <h2 className="text-black">{media.Year}</h2>}
-            <button className="text-white font-medium rounded-md px-2 bg-gradient-to-r from-pink-600 to-purple-600 mx-auto">Details</button>
-            <div id="details" className="hidden">
-            {media.Plot && <p className="text-black ">{media.Plot}</p>}
-            {media.Genre && <p className="text-black"><strong>Genre: </strong>{media.Genre}</p>}
-            {media.Language && <p className="text-black"><strong>Language: </strong>{media.Language}</p>}
-            {media.Runtime && <p className="text-black"><strong>Runtime: </strong>{media.Runtime}</p>}
-            {media.Actors && <p className="text-black "><strong>Starring: </strong>{media.Actors}</p>}
-            {media.Director && <p className="text-black "><strong>Directed By: </strong>{media.Director}</p>}
-            {media.Writer && <p className="text-black "><strong>Written By: </strong>{media.Writer}</p>}
-            {media.Awards && <p className="text-black "><strong>Awards: </strong>{media.Awards}</p>}
-            {media.Production && <p className="text-black "><strong>Production: </strong>{media.Production}</p>}
-            {media.Country && <p className="text-black "><strong>Country: </strong>{media.Country}</p>}
-            {media.BoxOffice && <p className="text-black "><strong>Box Office: </strong>{media.BoxOffice}</p>}
-            {media.imdbRating && <p className="text-black "><strong>Imbdb Rading: </strong>{media.imdbRating}</p>}
-            {media.imdbVotes && <p className="text-black "><strong>Imdb Votes: </strong>{media.imdbVotes}</p>}
-            {media.Type && <p className="text-black "><strong>Media Type: </strong>{media.Type}</p>}
-            {media.totalSeasons && <p className="text-black "><strong>Total Seasons: </strong>{media.totalSeasons}</p>}
-            {media.Website && <p className="text-black "><strong>Website: </strong>{media.Website}</p>}
+            }
+            <button className="container mx-auto shadow-sm hover:shadow-lg rounded-md transition-all duration-100 ease-linear cursor-pointer py-4 px-2 hover:scale-105" onClick={() => setShowDetails(true)}>
+                {media.Poster == "N/A" ? <img src={no_poster} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-full w-full border-2 border-gray-300"/> : <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-full w-full object-cover"/>}
+                {media.Title && <h1 className="font-bold text-xl mx-auto">{media.Title}</h1>}
+                {media.Year && <h2 className="text-black text-md py-1">{media.Year}</h2>}
+                <button className="text-white font-medium rounded-md px-2 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto">Details</button>
+            </button>
+            {showDetails && movieID === media.imdbID &&
+            <div id="details" className="bottom-0 top-0 box-border fixed left-0 right-0 bg-black bg-opacity-95 rounded-md transition-all ease-linear duration-400 text-white overflow-auto" onClick={()=>setShowDetails(false)}>
+                <div className="container mx-auto py-32 sm:grid sm:grid-cols-3 bg-black rounded-md my-16">
+                    <div className="col-span-3">
+                        {media.Title && <h1 className="font-bold text-2xl mx-auto border-b border-x-white py-4">{media.Title} ({media.Year})</h1>}
+                    </div>
+                    <div className="">
+                        {media.Poster == "N/A" ? <img src={no_poster} alt={`${media.Title} movie poster`} className="rounded-md mx-auto border-2 border-gray-300 m-5"/> : <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto py-5"/>}
+                    </div>
+                    <div className="pr-20">
+                        {media.Plot && <p className="font-medium text-lg py-2">{media.Plot}</p>}
+                    </div>
+                    <div className="">
+                        {media.Genre && <p className=""><strong>Genre: </strong>{media.Genre}</p>}
+                        {media.Language && <p className=""><strong>Language: </strong>{media.Language}</p>}
+                        {media.Runtime && <p className=""><strong>Runtime: </strong>{media.Runtime}</p>}
+                        {media.Actors && <p className=""><strong>Starring: </strong>{media.Actors}</p>}
+                        {media.Director && <p className=""><strong>Directed By: </strong>{media.Director}</p>}
+                        {media.Writer && <p className=""><strong>Written By: </strong>{media.Writer}</p>}
+                        {media.Awards && <p className=""><strong>Awards: </strong>{media.Awards}</p>}
+                        {media.Production && <p className=""><strong>Production: </strong>{media.Production}</p>}
+                        {media.Country && <p className=""><strong>Country: </strong>{media.Country}</p>}
+                        {media.BoxOffice && <p className=""><strong>Box Office: </strong>{media.BoxOffice}</p>}
+                        {media.imdbRating && <p className=""><strong>Imbdb Rading: </strong>{media.imdbRating}</p>}
+                        {media.imdbVotes && <p className=""><strong>Imdb Votes: </strong>{media.imdbVotes}</p>}
+                        {media.Type && <p className=""><strong>Media Type: </strong>{media.Type}</p>}
+                        {media.totalSeasons && <p className=""><strong>Total Seasons: </strong>{media.totalSeasons}</p>}
+                        {media.Website && <p className=""><strong>Website: </strong>{media.Website}</p>}
+                    </div>
+                </div>
             </div>
-        </div>
+            }
         </>
     )
 }
