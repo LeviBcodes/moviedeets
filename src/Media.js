@@ -40,18 +40,18 @@ const Media = (props) => {
                 <button className="text-white font-medium rounded-md px-2 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto">Details</button>
             </button>
             {showDetails && movieID === media.imdbID &&
-            <div id="details" className="bottom-0 top-0 box-border fixed left-0 right-0 bg-black bg-opacity-95 rounded-md transition-all ease-linear duration-400 text-white overflow-auto" onClick={()=>setShowDetails(false)}>
-                <div className="container mx-auto py-32 sm:grid sm:grid-cols-3 bg-black rounded-md my-16">
-                    <div className="col-span-3">
+            <div id="details" className="z-10 mx-auto bottom-0 top-0 box-border fixed left-0 right-0 bg-black bg-opacity-95 rounded-md transition-all ease-linear duration-400 text-white overflow-auto" onClick={()=>setShowDetails(false)}>
+                <div className="container mx-auto py-32 sm:grid sm:grid-cols-3 my-16">
+                    <div className="container mx-auto col-span-3">
                         {media.Title && <h1 className="font-bold text-2xl mx-auto border-b border-x-white py-4">{media.Title} ({media.Year})</h1>}
                     </div>
                     <div className="">
-                        {media.Poster == "N/A" ? <img src={no_poster} alt={`${media.Title} movie poster`} className="rounded-md mx-auto border-2 border-gray-300 m-5"/> : <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto py-5"/>}
+                        {media.Poster == "N/A" ? <img src={no_poster} alt={`${media.Title} movie poster`} className="rounded-md mx-auto border-2 border-gray-300 m-5"/> : <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto m-6"/>}
                     </div>
                     <div className="pr-20">
-                        {media.Plot && <p className="font-medium text-lg py-2">{media.Plot}</p>}
+                        {media.Plot && <p className="font-medium text-lg my-5">{media.Plot}</p>}
                     </div>
-                    <div className="">
+                    <div className="text-lg my-5">
                         {media.Genre && <p className=""><strong>Genre: </strong>{media.Genre}</p>}
                         {media.Language && <p className=""><strong>Language: </strong>{media.Language}</p>}
                         {media.Runtime && <p className=""><strong>Runtime: </strong>{media.Runtime}</p>}

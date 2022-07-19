@@ -35,7 +35,7 @@ function App() {
   
   return (
     <>
-      <nav className="container mx-auto text-center py-5 top-0 sticky bg-white shadow-sm">
+      <nav className="z-20 container mx-auto text-center py-5 top-0 sticky bg-white shadow-sm">
         <input type="text" value={query} onChange={handleSearch} className="border w-60" />
       </nav>
       <div className="container mx-auto lg:gap-4 lg:grid lg:grid-cols-5 sm:gap-2 sm:grid sm:grid-cols-3">
