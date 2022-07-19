@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios';
-import { logDOM } from '@testing-library/react';
 
 export default function useMediaSearch(query, pageNumber) {
     const[loading, setLoading] = useState(false)

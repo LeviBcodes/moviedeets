@@ -38,13 +38,14 @@ function App() {
       <div className="container mx-auto text-center py-5">
         <input type="text" value={query} onChange={handleSearch} className="border border-black w-60 " />
       </div>
-      <div className="container mx-auto space-y-2 lg:space-y-0 lg:gap-4 lg:grid lg:grid-cols-4">
-        {media && media.map((item, index) => {
+      <div className="container mx-auto space-y-2 lg:gap-4 lg:grid lg:grid-cols-5">
+        {media && media.map((item) => {
           if(item.Search && item.Search.length - 1) {
             return(
               item.Search && item.Search.map((value, key) => {
                 return (
                     <div key={key} ref={lastMediaElementRef} className="w-full h-full mx-auto">
+                      
                       <Media imdbID={value.imdbID} />
                     </div>
                 )
@@ -55,8 +56,8 @@ function App() {
             return(
               item.Search && item.Search.map((value, key) => {
                 return (
-                  <div key={key} className="container mx-auto">
-                    <Media imdbID={item.imdbID} />
+                  <div key={key} className="container mx-auto bg-slate-100">
+                    <Media imdbID={value.imdbID} />
                   </div>
                 )
               })
