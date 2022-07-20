@@ -40,7 +40,7 @@ const Media = (props) => {
                 <button className="text-white font-medium rounded-md px-2 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto">Details</button>
             </button>
             {showDetails && movieID === media.imdbID &&
-            <div id="details" className="z-10 mx-auto bottom-0 top-0 box-border fixed left-0 right-0 bg-black bg-opacity-95 rounded-md transition-all ease-linear duration-400 text-white overflow-auto" onClick={()=>setShowDetails(false)}>
+            <div id="details" className="z-10 text-center mx-auto bottom-0 top-0 box-border fixed left-0 right-0 bg-black bg-opacity-95 rounded-md transition-all ease-linear duration-400 text-white overflow-auto" onClick={()=>setShowDetails(false)}>
                 <div className="container mx-auto py-20 sm:grid sm:grid-cols-2 my-6">
                     <div className="container mx-auto col-span-3 text-center">
                         {media.Title && <h1 className="font-bold text-2xl mx-auto py-4">{media.Title} ({media.Year})</h1>}
@@ -51,7 +51,10 @@ const Media = (props) => {
                     <div className="col-span-3 lg:px-36 px-10">
                         {media.Plot && <p className="font-medium text-lg my-5">{media.Plot}</p>}
                     </div>
-                    <div className="text-lg my-5 col-span-3 lg:px-36 px-10">
+                    <div className="col-span-3 lg:px-36 px-10">
+                        <hr className="container mx-auto opacity-100 bg-gradient-to-r from-purple-600 to-pink-600 w-5"/>
+                    </div>
+                    <div className="text-lg my-5 col-span-3 lg:px-36 px-10 sm:w-50">
                         {media.Genre && <p className=""><strong>Genre: </strong>{media.Genre}</p>}
                         {media.Language && <p className=""><strong>Language: </strong>{media.Language}</p>}
                         {media.Runtime && <p className=""><strong>Runtime: </strong>{media.Runtime}</p>}
@@ -68,7 +71,7 @@ const Media = (props) => {
                         {media.totalSeasons && <p className=""><strong>Total Seasons: </strong>{media.totalSeasons}</p>}
                         {media.Website && <p className=""><strong>Website: </strong>{media.Website}</p>}
                     </div>
-                    <div className="col-span-3 lg:px-36 text-center py-5 my-5">
+                    <div className="col-span-3 lg:px-36 text-center py-3 my-3">
                         <button className="text-white text-xl font-bold rounded-md px-2 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto hover:animate-pulse">Close</button>
                     </div>
                 </div>

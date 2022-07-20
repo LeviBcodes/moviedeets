@@ -35,8 +35,8 @@ function App() {
   
   return (
     <>
-      <nav className="z-20 mx-auto text-center py-5 top-0 sticky bg-black shadow-sm">
-        <div className="container flex flex-wrap justify-between items-center mx-auto">
+      <nav className="z-20 mx-auto text-center py-5 top-0 sticky bg-black shadow-sm align-items-center">
+        <div className="container sm:flex flex-wrap justify-between items-center mx-auto">
           <div className="flex items-center">
             <h1 className="mr-3 h-6 sm:h-9 text-white text-4xl font-bold">MovieDeets</h1>
           </div>
