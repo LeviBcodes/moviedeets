@@ -2,6 +2,7 @@ import React, {useState, useRef, useCallback} from 'react';
 import useMediaSearch from './useMediaSearch';
 import Media from './Media';
 import './index.css';
+import About from './About';
 
 function App() {
   const[query, setQuery] = useState('');
@@ -38,7 +39,9 @@ function App() {
       <nav className="z-20 mx-auto text-center py-5 top-0 sticky bg-black shadow-sm align-items-center">
         <div className="container sm:flex flex-wrap justify-between items-center mx-auto">
           <div className="flex items-center">
-            <h1 className="mr-3 h-6 sm:h-9 text-white text-4xl font-bold">MovieDeets</h1>
+            <a href="/" className="text-white text-2xl font-bold">
+              <h1 className="mr-3 px-3 text-white text-4xl font-bold">MovieDeets</h1>
+            </a>
           </div>
           <div className="flex md:order-2">
             <input type="text" value={query} onChange={handleSearch} className="rounded-md w-full focus:ring-4 px-5 text-lg" placeholder='Search media'/>
@@ -52,10 +55,10 @@ function App() {
           <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-3" id="navbar-search">
             <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
               <li>
-                <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                <button class="text-lg py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0"><About /></button>
               </li>
               <li>
-                <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Privacy</a>
+                <a href="#" class="text-lg block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0">Privacy</a>
               </li>
             </ul>
           </div>

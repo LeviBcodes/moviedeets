@@ -71,8 +71,11 @@ const Media = (props) => {
                         {media.totalSeasons && <p className=""><strong>Total Seasons: </strong>{media.totalSeasons}</p>}
                         {media.Website && <p className=""><strong>Website: </strong>{media.Website}</p>}
                     </div>
+                    <div className="col-span-3 lg:px-36 px-10">
+                        <hr className="container mx-auto opacity-100 bg-gradient-to-r from-purple-600 to-pink-600 w-5"/>
+                    </div>
                     <div className="col-span-3 lg:px-36 text-center py-3 my-3">
-                        <button className="text-white text-xl font-bold rounded-md px-2 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto hover:animate-pulse">Close</button>
+                        <button className="text-white text-xl font-bold rounded-md px-2 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto">Close</button>
                     </div>
                 </div>
             </div>
