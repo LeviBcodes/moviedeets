@@ -33,25 +33,25 @@ const Media = (props) => {
                 </div>
             </div>
             }
-            <button className="container mx-auto shadow-sm hover:shadow-lg rounded-md transition-all duration-100 ease-linear cursor-pointer py-4 px-2 hover:scale-105" onClick={() => setShowDetails(true)}>
-                {media.Poster == "N/A" ? <img src={no_poster} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-full w-full border-2 border-gray-300"/> : <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-full w-full object-cover"/>}
+            <button className="container mx-auto shadow-md hover:shadow-lg rounded-md transition-all duration-100 ease-linear cursor-pointer py-4 px-2 hover:scale-105" onClick={() => setShowDetails(true)}>
+                {media.Poster == "N/A" ? <img src={no_poster} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-30 w-full border-2 border-gray-300"/> : <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-full w-full object-cover"/>}
                 {media.Title && <h1 className="font-bold text-xl mx-auto">{media.Title}</h1>}
-                {media.Year && <h2 className="text-black text-md py-1">{media.Year}</h2>}
+                {media.Year && <h2 className="text-black text-md py-1 font-semibold">{media.Year}</h2>}
                 <button className="text-white font-medium rounded-md px-2 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto">Details</button>
             </button>
             {showDetails && movieID === media.imdbID &&
             <div id="details" className="z-10 mx-auto bottom-0 top-0 box-border fixed left-0 right-0 bg-black bg-opacity-95 rounded-md transition-all ease-linear duration-400 text-white overflow-auto" onClick={()=>setShowDetails(false)}>
-                <div className="container mx-auto py-32 sm:grid sm:grid-cols-3 my-16">
-                    <div className="container mx-auto col-span-3">
-                        {media.Title && <h1 className="font-bold text-2xl mx-auto border-b border-x-white py-4">{media.Title} ({media.Year})</h1>}
+                <div className="container mx-auto py-20 sm:grid sm:grid-cols-2 my-6">
+                    <div className="container mx-auto col-span-3 text-center">
+                        {media.Title && <h1 className="font-bold text-2xl mx-auto py-4">{media.Title} ({media.Year})</h1>}
                     </div>
-                    <div className="">
+                    <div className="col-span-3">
                         {media.Poster == "N/A" ? <img src={no_poster} alt={`${media.Title} movie poster`} className="rounded-md mx-auto border-2 border-gray-300 m-5"/> : <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto m-6"/>}
                     </div>
-                    <div className="pr-20">
+                    <div className="col-span-3 lg:px-36 px-10">
                         {media.Plot && <p className="font-medium text-lg my-5">{media.Plot}</p>}
                     </div>
-                    <div className="text-lg my-5">
+                    <div className="text-lg my-5 col-span-3 lg:px-36 px-10">
                         {media.Genre && <p className=""><strong>Genre: </strong>{media.Genre}</p>}
                         {media.Language && <p className=""><strong>Language: </strong>{media.Language}</p>}
                         {media.Runtime && <p className=""><strong>Runtime: </strong>{media.Runtime}</p>}
@@ -67,6 +67,9 @@ const Media = (props) => {
                         {media.Type && <p className=""><strong>Media Type: </strong>{media.Type}</p>}
                         {media.totalSeasons && <p className=""><strong>Total Seasons: </strong>{media.totalSeasons}</p>}
                         {media.Website && <p className=""><strong>Website: </strong>{media.Website}</p>}
+                    </div>
+                    <div className="col-span-3 lg:px-36 text-center py-5 my-5">
+                        <button className="text-white text-xl font-bold rounded-md px-2 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto hover:animate-pulse">Close</button>
                     </div>
                 </div>
             </div>
