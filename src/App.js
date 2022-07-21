@@ -3,6 +3,7 @@ import useMediaSearch from './useMediaSearch';
 import Media from './Media';
 import './index.css';
 import About from './About';
+import Privacy from './Privacy';
 
 function App() {
   const[query, setQuery] = useState('');
@@ -55,10 +56,10 @@ function App() {
           <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-3" id="navbar-search">
             <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
               <li>
-                <button class="text-lg py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0"><About /></button>
+                <About />
               </li>
               <li>
-                <a href="#" class="text-lg block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0">Privacy</a>
+                <Privacy />
               </li>
             </ul>
           </div>
