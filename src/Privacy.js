@@ -14,8 +14,8 @@ const Privacy = () => {
          </button>
          {showPrivacy &&
             <div id="privacy" className="z-10 h-screen mx-auto box-border fixed bottom-0 top-0 left-0 right-0 bg-black opacity-95 rounded-md transition-all ease-linear duration-400 text-black" onClick={()=> setShowPrivacy(false)}>
-                <div className="sm:pt-40 ">
-                    <div class="bg-white rounded-lg mx-auto container px-5 py-5">
+                <div className="sm:pt-40 opacity-100">
+                    <div class="bg-white rounded-lg mx-auto container px-5 py-5 opacity-100">
                         <div class="flex justify-between rounded-t border-b pb-2">
                             <h3 class="text-xl font-semibold text-gray-900">
                                 Privacy Policy

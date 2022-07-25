@@ -45,7 +45,7 @@ function App() {
             </a>
           </div>
           <div className="flex md:order-2">
-            <input type="text" value={query} onChange={handleSearch} className="rounded-md w-full focus:ring-4 px-5 text-lg" placeholder='Search media'/>
+            <input type="text" onClick={() => setQuery(() => "")} value={query} onChange={handleSearch} className="rounded-md w-full focus:ring-4 px-5 text-lg" placeholder='Search media'/>
           </div>
           <div className="flex md:order-3">
             <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">

@@ -14,8 +14,8 @@ const About = () => {
          </button>
             {showAbout &&
                 <div id="about" className="z-10 mx-auto bottom-0 top-0 box-border fixed left-0 right-0 bg-white rounded-md transition-all ease-linear duration-400 text-black" onClick={() => setShowAbout(false)}>
-                    <h1 className="pt-40 text-3xl font-bold">About this site</h1>
-                    <p className=" ">Hi, I'm Levi Burland. I created this web application using the following technologies:</p>
+                    <h1 className="pt-40 text-3xl font-bold">About</h1>
+                    <p className=" ">Hello and welcome, thank you for viewing my web application. My name is Levi Burland, I built this project using the following technologies:</p>
                     <ul>
                         <li>React</li>
                         <li>Axios</li>
