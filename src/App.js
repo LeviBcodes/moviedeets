@@ -40,6 +40,7 @@ function App() {
       <nav className="z-20 mx-auto text-center py-5 top-0 sticky bg-black shadow-sm align-items-center">
         <div className="container sm:flex flex-wrap justify-between items-center mx-auto">
           <div className="flex items-center">
+            <img src="../favicon.ico" class="w-8" alt="" />
             <a href="/" className="text-white text-2xl font-bold">
               <h1 className="mr-3 px-3 text-white text-4xl font-bold">MovieDeets</h1>
             </a>
