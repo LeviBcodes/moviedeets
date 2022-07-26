@@ -1,9 +1,10 @@
-import React, {useState, useRef, useCallback} from 'react';
+import React, {useState, useRef, useCallback, useEffect} from 'react';
 import useMediaSearch from './useMediaSearch';
 import Media from './Media';
 import './index.css';
 import About from './About';
 import Privacy from './Privacy';
+import initFilmLayer, { animation } from './initFilmLayer';
 
 function App() {
   const[query, setQuery] = useState('');
@@ -17,6 +18,10 @@ function App() {
   } = useMediaSearch(query, pageNumber)
   
   const observer = useRef()
+
+  useEffect(() => {
+    animation()
+  }, [])
   
   const lastMediaElementRef = useCallback(node => {
     if(loading) return
