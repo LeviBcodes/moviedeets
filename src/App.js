@@ -67,6 +67,7 @@ function App() {
         </div>
       </nav>
       <div className="container mx-auto lg:gap-4 lg:grid lg:grid-cols-5 sm:gap-2 sm:grid sm:grid-cols-3 px-16 py-6 lg:px-20">
+        {loading && <p>Loading...</p>}
         {media && media.map((item) => {
           if(item.Search && item.Search.length - 1) {
             return(
