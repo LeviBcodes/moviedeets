@@ -10,7 +10,7 @@ const Media = (props) => {
     const[media, setMedia] = useState([]);
     const[isLoading, setIsLoading] = useState(false);
     const[showDetails, setShowDetails] = useState(false);
-    const api = "http://www.omdbapi.com/?apikey=a619790";
+    const api = "https://www.omdbapi.com/?apikey=a619790";
     useEffect(() => {
         setIsLoading(true);
         axios.get(`${api}&i=${movieID}&plot=full`)

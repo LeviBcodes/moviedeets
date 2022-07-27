@@ -1,5 +1,6 @@
 {
   "name": "moviedeets",
+  "homepage": "https://www.moviedeets.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
