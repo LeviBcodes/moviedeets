@@ -4,7 +4,6 @@ import Media from './Media';
 import './index.css';
 import About from './About';
 import Privacy from './Privacy';
-import initFilmLayer, { animation } from './initFilmLayer';
 
 function App() {
   const[query, setQuery] = useState('');
@@ -18,10 +17,6 @@ function App() {
   } = useMediaSearch(query, pageNumber)
   
   const observer = useRef()
-
-  useEffect(() => {
-    animation()
-  }, [])
   
   const lastMediaElementRef = useCallback(node => {
     if(loading) return
@@ -72,7 +67,6 @@ function App() {
         </div>
       </nav>
       <div className="container mx-auto lg:gap-4 lg:grid lg:grid-cols-5 sm:gap-2 sm:grid sm:grid-cols-3 px-16 py-6 lg:px-20">
-        {loading && <p>Loading...</p>}
         {media && media.map((item) => {
           if(item.Search && item.Search.length - 1) {
             return(
