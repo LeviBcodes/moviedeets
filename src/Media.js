@@ -28,16 +28,16 @@ const Media = (props) => {
         <>
             {isLoading &&         
             <div className="flex justify-center items-center">
-                <div className="w-9 h-9 animate-spin rounded-full bg-gradient-to-r from-purple-600 to-pink-600 ">
+                <div className="w-9 h-9 animate-spin rounded-full bg-gradient-to-r from-red-500 to-yellow-300 ">
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-7 h-7 bg-white rounded-full border-2 border-white"></div>
                 </div>
             </div>
             }
-            <button className="container mx-auto shadow-md hover:shadow-lg rounded-md transition-all duration-100 ease-linear cursor-pointer py-4 px-2 hover:scale-105" onClick={() => setShowDetails(true)}>
+            <button className="container mx-auto shadow-md hover:shadow-lg rounded-md transition-all duration-200 ease-linear cursor-pointer py-4 px-2 hover:scale-105" onClick={() => setShowDetails(true)}>
                 {media.Poster == "N/A" ? <img src={no_poster} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-30 w-full border-2 border-gray-300"/> : <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-full w-full object-cover"/>}
                 {media.Title && <h1 className="font-bold text-xl mx-auto">{media.Title}</h1>}
                 {media.Year && <h2 className="text-black text-md py-1 font-semibold">{media.Year}</h2>}
-                <div className="text-white font-medium rounded-md px-2 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto">Details</div>
+                <div className="text-white font-medium rounded-md sm:mx-12 lg:mx-20 bg-gradient-to-r from-red-500 to-yellow-300">Details</div>
             </button>
             {showDetails && movieID === media.imdbID &&
             <div id="details" className="z-10 text-center mx-auto bottom-0 top-0 box-border fixed left-0 right-0 bg-black bg-opacity-95 rounded-md transition-all ease-linear duration-400 text-white overflow-auto" onClick={()=>setShowDetails(false)}>
@@ -52,7 +52,7 @@ const Media = (props) => {
                         {media.Plot && <p className="font-medium text-lg my-5">{media.Plot}</p>}
                     </div>
                     <div className="col-span-3 lg:px-36 px-10">
-                        <hr className="container mx-auto opacity-100 bg-gradient-to-r from-purple-600 to-pink-600 w-5"/>
+                        <hr className="container mx-auto opacity-100 bg-gradient-to-r from-red-500 to-yellow-300 w-5"/>
                     </div>
                     <div className="text-lg my-5 col-span-3 lg:px-36 px-10 sm:w-50">
                         {media.Genre && <p className=""><strong>Genre: </strong>{media.Genre}</p>}
@@ -72,10 +72,10 @@ const Media = (props) => {
                         {media.Website && <p className=""><strong>Website: </strong>{media.Website}</p>}
                     </div>
                     <div className="col-span-3 lg:px-36 px-10">
-                        <hr className="container mx-auto opacity-100 bg-gradient-to-r from-purple-600 to-pink-600 w-5"/>
+                        <hr className="container mx-auto opacity-100 bg-gradient-to-r from-red-500 to-yellow-200 w-5"/>
                     </div>
                     <div className="col-span-3 lg:px-36 text-center py-3 my-3">
-                        <button className="text-white text-xl font-bold rounded-md px-2 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto">Close</button>
+                        <button className="text-white text-xl font-bold rounded-md px-2 bg-gradient-to-r from-red-500 to-yellow-400 mx-auto hover:scale-105 transition-all ease-linear duration-300">Close</button>
                     </div>
                 </div>
             </div>
