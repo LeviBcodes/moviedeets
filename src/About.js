@@ -9,8 +9,8 @@ const About = () => {
 
     return (
         <>
-         <button class="text-lg py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0" onClick={() => setShowAbout(true)}>
-            <h1 class="">About</h1>
+         <button className="text-lg py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0" onClick={() => setShowAbout(true)}>
+            <h1 className="">About</h1>
          </button>
             {showAbout &&
                 <div id="about" className="z-10 mx-auto bottom-0 top-0 box-border fixed left-0 right-0 bg-white rounded-md transition-all ease-linear duration-400 text-black" onClick={() => setShowAbout(false)}>

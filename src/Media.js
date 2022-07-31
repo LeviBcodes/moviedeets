@@ -37,7 +37,7 @@ const Media = (props) => {
                 {media.Poster == "N/A" ? <img src={no_poster} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-30 w-full border-2 border-gray-300"/> : <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-full w-full object-cover"/>}
                 {media.Title && <h1 className="font-bold text-xl mx-auto">{media.Title}</h1>}
                 {media.Year && <h2 className="text-black text-md py-1 font-semibold">{media.Year}</h2>}
-                <button className="text-white font-medium rounded-md px-2 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto">Details</button>
+                <div className="text-white font-medium rounded-md px-2 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto">Details</div>
             </button>
             {showDetails && movieID === media.imdbID &&
             <div id="details" className="z-10 text-center mx-auto bottom-0 top-0 box-border fixed left-0 right-0 bg-black bg-opacity-95 rounded-md transition-all ease-linear duration-400 text-white overflow-auto" onClick={()=>setShowDetails(false)}>

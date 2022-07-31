@@ -7,7 +7,7 @@ export default function useMediaSearch(query, pageNumber) {
     const[media, setMedia] = useState([])
     const[hasMore, setHasMore] = useState(false)
 
-    const api = "http://www.omdbapi.com/?apikey=a619790&plot=full";
+    const api = "https://www.omdbapi.com/?apikey=a619790&plot=full";
 
     useEffect(() => {
         setMedia([])
