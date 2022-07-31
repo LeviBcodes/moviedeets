@@ -8,7 +8,7 @@ const About = () => {
     const[showAbout, setShowAbout] = useState(false)
 
     return (
-        <>
+        <div>
          <button className="text-lg py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0" onClick={() => setShowAbout(true)}>
             <h1 className="">About</h1>
          </button>
@@ -27,7 +27,7 @@ const About = () => {
                     </ul>
                 </div>
             }
-        </>
+        </div>
     )
 }
 

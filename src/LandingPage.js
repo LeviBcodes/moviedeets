@@ -2,6 +2,7 @@ import React from 'react'
 import Typical from 'react-typical'
 
 
+
 function LandingPage() {
   return (
     <>
