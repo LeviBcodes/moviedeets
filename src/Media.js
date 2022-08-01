@@ -33,43 +33,44 @@ const Media = (props) => {
                 </div>
             </div>
             }
-            <button className="container mx-auto shadow-md hover:shadow-lg rounded-md transition-all duration-200 ease-linear cursor-pointer py-4 px-2 hover:scale-105" onClick={() => setShowDetails(true)}>
+            <button className="container max-w-xs mx-auto shadow-md hover:shadow-lg rounded-md transition-all duration-150 ease-linear cursor-pointer py-4 px-2 hover:scale-105" onClick={() => setShowDetails(true)}>
                 {media.Poster == "N/A" ? <img src={no_poster} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-30 w-full border-2 border-gray-300"/> : <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto h-full w-full object-cover"/>}
                 {media.Title && <h1 className="font-bold text-xl mx-auto">{media.Title}</h1>}
                 {media.Year && <h2 className="text-black text-md py-1 font-semibold">{media.Year}</h2>}
-                <div className="text-white font-medium rounded-md sm:mx-12 lg:mx-20 bg-gradient-to-r from-red-500 to-yellow-300">Details</div>
+                <div className="text-white font-bold rounded-md sm:mx-12 lg:mx-20 bg-gradient-to-r from-red-500 to-yellow-400 hover:scale-105 duration-100 ease-linear">Details</div>
             </button>
             {showDetails && movieID === media.imdbID &&
-            <div id="details" className="z-10 text-center mx-auto bottom-0 top-0 box-border fixed left-0 right-0 bg-black bg-opacity-95 rounded-md transition-all ease-linear duration-400 text-white overflow-auto" onClick={()=>setShowDetails(false)}>
+            <div id="details" className="py-10 z-10 text-center mx-auto bottom-0 top-0 box-border fixed left-0 right-0 bg-black bg-opacity-95 rounded-md transition-all ease-linear duration-400 text-white overflow-auto" onClick={()=>setShowDetails(false)}>
                 <div className="container mx-auto py-20 sm:grid sm:grid-cols-2 my-6">
                     <div className="container mx-auto col-span-3 text-center">
-                        {media.Title && <h1 className="font-bold text-2xl mx-auto py-4">{media.Title} ({media.Year})</h1>}
+                        {media.Title && <h1 className="font-bold text-3xl mx-auto py-4">{media.Title} ({media.Year})</h1>}
                     </div>
                     <div className="col-span-3">
-                        {media.Poster == "N/A" ? <img src={no_poster} alt={`${media.Title} movie poster`} className="rounded-md mx-auto border-2 border-gray-300 m-5"/> : <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto m-6"/>}
+                        {media.Poster == "N/A" ? <img src={no_poster} alt={`${media.Title} movie poster`} className="rounded-md mx-auto border-2 border-gray-300 m-5 max-h-96 "/> : <img src={`${media.Poster}`} alt={`${media.Title} movie poster`} className="rounded-md mx-auto m-6"/>}
                     </div>
                     <div className="col-span-3 lg:px-36 px-10">
-                        {media.Plot && <p className="font-medium text-lg my-5">{media.Plot}</p>}
+                        {media.Plot && <p className="font-medium text-2xl my-5">{media.Plot}</p>}
                     </div>
                     <div className="col-span-3 lg:px-36 px-10">
-                        <hr className="container mx-auto opacity-100 bg-gradient-to-r from-red-500 to-yellow-300 w-5"/>
+                        <hr className="container mx-auto opacity-100 bg-gradient-to-r from-red-600 to-yellow-300 w-5"/>
                     </div>
                     <div className="text-lg my-5 col-span-3 lg:px-36 px-10 sm:w-50">
-                        {media.Genre && <p className=""><strong>Genre: </strong>{media.Genre}</p>}
-                        {media.Language && <p className=""><strong>Language: </strong>{media.Language}</p>}
-                        {media.Runtime && <p className=""><strong>Runtime: </strong>{media.Runtime}</p>}
-                        {media.Actors && <p className=""><strong>Starring: </strong>{media.Actors}</p>}
-                        {media.Director && <p className=""><strong>Directed By: </strong>{media.Director}</p>}
-                        {media.Writer && <p className=""><strong>Written By: </strong>{media.Writer}</p>}
-                        {media.Awards && <p className=""><strong>Awards: </strong>{media.Awards}</p>}
-                        {media.Production && <p className=""><strong>Production: </strong>{media.Production}</p>}
-                        {media.Country && <p className=""><strong>Country: </strong>{media.Country}</p>}
-                        {media.BoxOffice && <p className=""><strong>Box Office: </strong>{media.BoxOffice}</p>}
-                        {media.imdbRating && <p className=""><strong>Imbdb Rading: </strong>{media.imdbRating}</p>}
-                        {media.imdbVotes && <p className=""><strong>Imdb Votes: </strong>{media.imdbVotes}</p>}
-                        {media.Type && <p className=""><strong>Media Type: </strong>{media.Type}</p>}
-                        {media.totalSeasons && <p className=""><strong>Total Seasons: </strong>{media.totalSeasons}</p>}
-                        {media.Website && <p className=""><strong>Website: </strong>{media.Website}</p>}
+                        {media.Genre && <p className="py-1"><strong>Genre: </strong>{media.Genre}</p>}
+                        {media.Rated && <p className="py-1"><strong>Rated: </strong><span className={`${media.Rated !== "N/A" ? 'border border-white px-1 ml-1' : ''}`}>{media.Rated}</span></p>}
+                        {media.Runtime && <p className="py-1"><strong>Runtime: </strong><span className="px-1"><i class="fa-solid fa-clock"></i></span>{media.Runtime}</p>}
+                        {media.Actors && <p className="py-1"><strong>Starring: </strong>{media.Actors}</p>}
+                        {media.Director && <p className="py-1"><strong>Directed By: </strong>{media.Director}</p>}
+                        {media.Writer && <p className="py-1"><strong>Written By: </strong>{media.Writer}</p>}
+                        {media.Awards && <p className="py-1"><strong>Awards: </strong>{media.Awards}</p>}
+                        {media.Country && <p className="py-1"><strong>Country: </strong>{media.Country}</p>}
+                        {media.Language && <p className="py-1"><strong>Language: </strong>{media.Language}</p>}
+                        {media.BoxOffice && <p className="py-1"><strong>Box Office: </strong>{media.BoxOffice}</p>}
+                        {media.Ratings && <p className="py-1"><strong>Ratings: </strong>{media.Ratings.map(rating => <p key={rating.Source} className="text-white font-medium">{rating.Source}: <span className={`${rating.Source}  font-light`}>{rating.Value}</span></p>)}</p>}
+                        {media.Metascore && <p className="py-1"><strong>Metascore: </strong><span>{media.Metascore}</span></p>}
+                        {media.imdbVotes && <p className="py-1"><strong>Imdb Votes: </strong><span className="px-1"><i class="fa-solid fa-thumbs-up"></i></span>{media.imdbVotes}</p>}
+                        {media.Production && <p className="py-1"><strong>Production: </strong>{media.Production}</p>}
+                        {media.Type && <p className="py-2"><strong>Media Type: </strong>{media.Type}</p>}
+                        {media.totalSeasons && <p className="py-1"><strong>Total Seasons: </strong>{media.totalSeasons}</p>}
                     </div>
                     <div className="col-span-3 lg:px-36 px-10">
                         <hr className="container mx-auto opacity-100 bg-gradient-to-r from-red-500 to-yellow-200 w-5"/>
