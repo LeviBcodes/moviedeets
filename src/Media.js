@@ -56,7 +56,7 @@ const Media = (props) => {
                     </div>
                     <div className="text-lg my-5 col-span-3 lg:px-36 px-10 sm:w-50">
                         {media.Genre && <p className="py-1"><strong>Genre: </strong>{media.Genre}</p>}
-                        {media.Rated && <p className="py-1"><strong>Rated: </strong><span className={`${media.Rated !== "N/A" ? 'border border-white px-1 ml-1' : ''}`}>{media.Rated}</span></p>}
+                        {media.Rated && <p className="py-1"><strong>Rated: </strong><span className={`${media.Rated !== "N/A" ? 'border border-white px-1 ml-1 text-xs' : ''}`}>{media.Rated}</span></p>}
                         {media.Runtime && <p className="py-1"><strong>Runtime: </strong><span className="px-1"><i class="fa-solid fa-clock"></i></span>{media.Runtime}</p>}
                         {media.Actors && <p className="py-1"><strong>Starring: </strong>{media.Actors}</p>}
                         {media.Director && <p className="py-1"><strong>Directed By: </strong>{media.Director}</p>}
