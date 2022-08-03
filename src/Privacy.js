@@ -15,7 +15,7 @@ const Privacy = () => {
          {showPrivacy &&
             <div id="privacy" className="z-10 h-screen mx-auto box-border fixed bottom-0 bg-opacity-95 top-0 left-0 right-0 bg-black rounded-md transition-all ease-linear duration-400 text-black" onClick={()=> setShowPrivacy(false)}>
                 <div className="sm:pt-40 opacity-100 w-96 mx-auto my-10">
-                    <div className="bg-white rounded-lg mx-auto container px-5 py-5 opacity-100 z-20">
+                    <div className="bg-white rounded-lg mx-auto container px-4 py-5 opacity-100 z-20">
                         <div className="flex justify-between rounded-t border-b pb-2 opacity-100 my-4">
                             <h3 className="text-2xl font-semibold text-gray-900">
                                 Privacy Policy
@@ -25,7 +25,7 @@ const Privacy = () => {
                                 <span className="sr-only">Close modal</span>
                             </button>
                         </div>
-                        <div className="mx-auto container py-5 text-left">
+                        <div className="mx-auto container py-7 text-left">
                             <p className="text-black text-xl">
                                 MovieDeets does not collect and or use any personal information from its users.
                             </p>
